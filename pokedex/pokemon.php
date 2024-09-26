@@ -1,6 +1,3 @@
-<?php
-$pokemonName = $_GET["name"];
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -35,7 +32,7 @@ $pokemonName = $_GET["name"];
 
     <div class="cartaPokemon"></div>
 
-    <!-- <script src="../js/pokemon.js"></script> -->
+    <script src="../js/pokemon.js"></script>
     <script src="../js/nav.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4911360042357338"
         crossorigin="anonymous"></script>
