@@ -194,7 +194,7 @@ function cambiarShiny() {
 
     // URL de la imagen shiny
     let imagenNormal = new URL(defaultImage);
-    imagenNormal.pathname = `/pruebawiki/img/pokedex/${nombrePoke}/${nombrePoke}_shiny.png`;
+    imagenNormal.pathname = `/img/pokedex/${nombrePoke}/${nombrePoke}_shiny.png`;
     let imagenShiny = imagenNormal.toString();
 
     // Guarda la URL original en un data-attribute si aún no se ha guardado
