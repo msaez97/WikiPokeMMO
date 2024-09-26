@@ -49,9 +49,9 @@ async function cartaPokemon(pokemon, pokemonAnterior, pokemonSiguiente) {
             <img class="imagenPoke" src="${pokemon.imgs["img_default"]}" alt="imagen ${pokemon.nombre}" width="150" height="150">
             <button id="cambiarShiny" onclick="cambiarShiny()">Ver Shiny</button>
             <div class="infoPoke">
-                ${pokemonAnterior ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonAnterior.num_pokedex}&name=${pokemon.nombre}"><img src="${pokemonAnterior.imgs["img_default"]}" alt="${pokemonAnterior.nombre}" width="32" height="32">←</a>` : ''}
+                ${pokemonAnterior ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonAnterior.num_pokedex}&name=${pokemonAnterior.nombre}"><img src="${pokemonAnterior.imgs["img_default"]}" alt="${pokemonAnterior.nombre}" width="32" height="32">←</a>` : ''}
                 <p><img src="${pokemon.imgs["img_default"]}" alt="${pokemon.nombre}" width="32" height="32">${pokemon.nombre}</p>
-                ${pokemonSiguiente ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonSiguiente.num_pokedex}&name=${pokemon.nombre}">→<img src="${pokemonSiguiente.imgs["img_default"]}" alt="${pokemonSiguiente.nombre}" width="32" height="32"></a>` : ''}
+                ${pokemonSiguiente ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonSiguiente.num_pokedex}&name=${pokemonSiguiente.nombre}">→<img src="${pokemonSiguiente.imgs["img_default"]}" alt="${pokemonSiguiente.nombre}" width="32" height="32"></a>` : ''}
             </div>
             <div class="cartaPokeTipos">
                 <p class="${pokemon.tipo[0]}">${pokemon.tipo[0]}</p>
