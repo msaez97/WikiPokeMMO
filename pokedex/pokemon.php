@@ -1,5 +1,9 @@
+<?php
+$pokemonName = $_GET["name"];
+?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +17,17 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW3K77TW0W"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'G-GW3K77TW0W');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GW3K77TW0W');
     </script>
 </head>
+
 <body>
     <?php require '../assets/header.php'; ?>
     <div class="mensajeCarga" style="display: none; text-align: center;">Cargando Datos Pokemon...</div>
@@ -27,9 +35,9 @@
 
     <div class="cartaPokemon"></div>
 
-    <script src="../js/pokemon.js"></script>
+    <!-- <script src="../js/pokemon.js"></script> -->
     <script src="../js/nav.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4911360042357338"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </body>
-</html>
+

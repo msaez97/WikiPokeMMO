@@ -23,7 +23,7 @@ async function mostrarPokemon(data, offset, limit) {
 
     slice.forEach(pokemon => {
         pokemonList.innerHTML += `
-        <a href="pokemon?id=${pokemon.num_pokedex}">
+        <a href="pokemon?id=${pokemon.num_pokedex}&name=${pokemon.nombre}">
             <div class="pokemon ${pokemon.nombre}">
                 <img src="${pokemon.imgs["img_default"]}" alt="imagen de ${pokemon.nombre}" width="150" height="150" loading="lazy" />
                 <div class="id_nombre">
