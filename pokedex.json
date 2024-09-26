@@ -4,7 +4,7 @@
         "num_pokedex": "001",
         "imgs": {
             "img_default": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
-            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur_shiny.png"
+            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur-shiny.png"
         },
         "tipo": {
             "desc": "Pokémon Semilla",
@@ -76,7 +76,7 @@
         "num_pokedex": "002",
         "imgs": {
             "img_default": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur.png",
-            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur_shiny.png"
+            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur-shiny.png"
         },
         "tipo": {
             "desc": "Pokémon Semilla",
@@ -175,7 +175,7 @@
         "num_pokedex": "003",
         "imgs": {
             "img_default": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur.png",
-            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur_shiny.png"
+            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur-shiny.png"
         },
         "tipo": {
             "desc": "Pokémon Semilla",
