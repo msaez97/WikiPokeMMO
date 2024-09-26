@@ -1,0 +1,767 @@
+[
+    {
+        "nombre": "Bulbasaur",
+        "movimientos": {
+            "0": {
+                "nvl": "INICIAL",
+                "nombre": "Gruñido",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "40",
+                "precision": "100"
+            },
+            "1": {
+                "nvl": "INICIAL",
+                "nombre": "Placaje",
+                "tipo": "Normal",
+                "poder": "40",
+                "pp": "35",
+                "precision": "100"
+            },
+            "2": {
+                "nvl": "Nv. 3",
+                "nombre": "Gruñido",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "40",
+                "precision": "100"
+            },
+            "3": {
+                "nvl": "Nv. 3",
+                "nombre": "Látigo Cepa",
+                "tipo": "Planta",
+                "poder": "45",
+                "pp": "25",
+                "precision": "100"
+            },
+            "4": {
+                "nvl": "Nv. 6",
+                "nombre": "Desarrollo",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "5": {
+                "nvl": "Nv. 9",
+                "nombre": "Drenadoras",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "10",
+                "precision": "90"
+            },
+            "6": {
+                "nvl": "Nv. 12",
+                "nombre": "Hoja Afilada",
+                "tipo": "Planta",
+                "poder": "55",
+                "pp": "25",
+                "precision": "95"
+            },
+            "7": {
+                "nvl": "Nv. 14",
+                "nombre": "Polvo Veneno",
+                "tipo": "Veneno",
+                "poder": "-",
+                "pp": "35",
+                "precision": "75"
+            },
+            "8": {
+                "nvl": "Nv. 14",
+                "nombre": "Somnífero",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "15",
+                "precision": "75"
+            },
+            "9": {
+                "nvl": "Nv. 18",
+                "nombre": "Bomba Germen",
+                "tipo": "Planta",
+                "poder": "80",
+                "pp": "15",
+                "precision": "100"
+            },
+            "10": {
+                "nvl": "Nv. 18",
+                "nombre": "Derribo",
+                "tipo": "Normal",
+                "poder": "90",
+                "pp": "20",
+                "precision": "85"
+            },
+            "11": {
+                "nvl": "Nv. 24",
+                "nombre": "Dulce Aroma",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "12": {
+                "nvl": "Nv. 27",
+                "nombre": "Síntesis",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "5",
+                "precision": "100"
+            },
+            "13": {
+                "nvl": "Nv. 30",
+                "nombre": "Abatidoras",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "14": {
+                "nvl": "Nv. 32",
+                "nombre": "Doble Filo",
+                "tipo": "Normal",
+                "poder": "120",
+                "pp": "15",
+                "precision": "100"
+            },
+            "15": {
+                "nvl": "Nv. 33",
+                "nombre": "Latigazo",
+                "tipo": "Planta",
+                "poder": "120",
+                "pp": "10",
+                "precision": "85"
+            },
+            "16": {
+                "nvl": "Nv. 36",
+                "nombre": "Rayo Solar",
+                "tipo": "Planta",
+                "poder": "120",
+                "pp": "10",
+                "precision": "100"
+            },
+            "17": {
+                "nvl": "MT",
+                "nombre": "Adaptación",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "18": {
+                "nvl": "MT",
+                "nombre": "Aguante",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "19": {
+                "nvl": "MT",
+                "nombre": "Amnesia",
+                "tipo": "Psíquico",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "20": {
+                "nvl": "MT",
+                "nombre": "Atracción",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "15",
+                "precision": "100"
+            },
+            "21": {
+                "nvl": "MT",
+                "nombre": "Avivar",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "30",
+                "precision": "100"
+            },
+            "22": {
+                "nvl": "MT",
+                "nombre": "Bofetón Lodo",
+                "tipo": "Tierra",
+                "poder": "20",
+                "pp": "10",
+                "precision": "100"
+            },
+            "23": {
+                "nvl": "MT",
+                "nombre": "Bomba Germen",
+                "tipo": "Planta",
+                "poder": "80",
+                "pp": "15",
+                "precision": "100"
+            },
+            "24": {
+                "nvl": "MT",
+                "nombre": "Bomba Lodo",
+                "tipo": "Veneno",
+                "poder": "90",
+                "pp": "10",
+                "precision": "100"
+            },
+            "25": {
+                "nvl": "MT",
+                "nombre": "Bomba Ácida",
+                "tipo": "Veneno",
+                "poder": "40",
+                "pp": "20",
+                "precision": "100"
+            },
+            "26": {
+                "nvl": "MT",
+                "nombre": "Cabezazo",
+                "tipo": "Normal",
+                "poder": "130",
+                "pp": "10",
+                "precision": "100"
+            },
+            "27": {
+                "nvl": "MT",
+                "nombre": "Canon",
+                "tipo": "Normal",
+                "poder": "60",
+                "pp": "15",
+                "precision": "100"
+            },
+            "28": {
+                "nvl": "MT",
+                "nombre": "Cargatóxica",
+                "tipo": "Veneno",
+                "poder": "65",
+                "pp": "10",
+                "precision": "100"
+            },
+            "29": {
+                "nvl": "MT",
+                "nombre": "Contoneo",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "15",
+                "precision": "85"
+            },
+            "30": {
+                "nvl": "MT",
+                "nombre": "Cortefuria",
+                "tipo": "Bicho",
+                "poder": "40",
+                "pp": "20",
+                "precision": "95"
+            },
+            "31": {
+                "nvl": "MT",
+                "nombre": "Danza Espada",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "32": {
+                "nvl": "MT",
+                "nombre": "Daño Secreto",
+                "tipo": "Normal",
+                "poder": "70",
+                "pp": "20",
+                "precision": "100"
+            },
+            "33": {
+                "nvl": "MT",
+                "nombre": "Derribo",
+                "tipo": "Normal",
+                "poder": "90",
+                "pp": "20",
+                "precision": "85"
+            },
+            "34": {
+                "nvl": "MT",
+                "nombre": "Desarme",
+                "tipo": "Siniestro",
+                "poder": "20",
+                "pp": "20",
+                "precision": "100"
+            },
+            "35": {
+                "nvl": "MT",
+                "nombre": "Descanso",
+                "tipo": "Psíquico",
+                "poder": "-",
+                "pp": "5",
+                "precision": "100"
+            },
+            "36": {
+                "nvl": "MT",
+                "nombre": "Destello",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "37": {
+                "nvl": "MT",
+                "nombre": "Doble Equipo",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "15",
+                "precision": "100"
+            },
+            "38": {
+                "nvl": "MT",
+                "nombre": "Doble Filo",
+                "tipo": "Normal",
+                "poder": "120",
+                "pp": "15",
+                "precision": "100"
+            },
+            "39": {
+                "nvl": "MT",
+                "nombre": "Don Natural",
+                "tipo": "Normal",
+                "poder": "1",
+                "pp": "15",
+                "precision": "100"
+            },
+            "40": {
+                "nvl": "MT",
+                "nombre": "Dulce Aroma",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "41": {
+                "nvl": "MT",
+                "nombre": "Día Soleado",
+                "tipo": "Fuego",
+                "poder": "-",
+                "pp": "5",
+                "precision": "100"
+            },
+            "42": {
+                "nvl": "MT",
+                "nombre": "Eco Voz",
+                "tipo": "Normal",
+                "poder": "40",
+                "pp": "15",
+                "precision": "100"
+            },
+            "43": {
+                "nvl": "MT",
+                "nombre": "Encanto",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "44": {
+                "nvl": "MT",
+                "nombre": "Energibola",
+                "tipo": "Planta",
+                "poder": "90",
+                "pp": "10",
+                "precision": "100"
+            },
+            "45": {
+                "nvl": "MT",
+                "nombre": "Enfado",
+                "tipo": "Dragón",
+                "poder": "90",
+                "pp": "10",
+                "precision": "100"
+            },
+            "46": {
+                "nvl": "MT",
+                "nombre": "Falsotortazo",
+                "tipo": "Normal",
+                "poder": "40",
+                "pp": "40",
+                "precision": "100"
+            },
+            "47": {
+                "nvl": "MT",
+                "nombre": "Frustración",
+                "tipo": "Normal",
+                "poder": "1",
+                "pp": "20",
+                "precision": "100"
+            },
+            "48": {
+                "nvl": "MT",
+                "nombre": "Furia",
+                "tipo": "Normal",
+                "poder": "20",
+                "pp": "20",
+                "precision": "100"
+            },
+            "49": {
+                "nvl": "MT",
+                "nombre": "Gigadrenado",
+                "tipo": "Planta",
+                "poder": "75",
+                "pp": "10",
+                "precision": "100"
+            },
+            "50": {
+                "nvl": "MT",
+                "nombre": "Golpe Cabeza",
+                "tipo": "Normal",
+                "poder": "70",
+                "pp": "15",
+                "precision": "100"
+            },
+            "51": {
+                "nvl": "MT",
+                "nombre": "Golpe Cuerpo",
+                "tipo": "Normal",
+                "poder": "85",
+                "pp": "15",
+                "precision": "100"
+            },
+            "52": {
+                "nvl": "MT",
+                "nombre": "Golpe Roca",
+                "tipo": "Lucha",
+                "poder": "40",
+                "pp": "15",
+                "precision": "100"
+            },
+            "53": {
+                "nvl": "MT",
+                "nombre": "Hierba Lazo",
+                "tipo": "Planta",
+                "poder": "1",
+                "pp": "20",
+                "precision": "100"
+            },
+            "54": {
+                "nvl": "MT",
+                "nombre": "Hoja Mágica",
+                "tipo": "Planta",
+                "poder": "60",
+                "pp": "20",
+                "precision": "100"
+            },
+            "55": {
+                "nvl": "MT",
+                "nombre": "Imagen",
+                "tipo": "Normal",
+                "poder": "70",
+                "pp": "20",
+                "precision": "100"
+            },
+            "56": {
+                "nvl": "MT",
+                "nombre": "Latigazo",
+                "tipo": "Planta",
+                "poder": "120",
+                "pp": "10",
+                "precision": "85"
+            },
+            "57": {
+                "nvl": "MT",
+                "nombre": "Lluevehojas",
+                "tipo": "Planta",
+                "poder": "130",
+                "pp": "5",
+                "precision": "90"
+            },
+            "58": {
+                "nvl": "MT",
+                "nombre": "Maldición",
+                "tipo": "Fantasma",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "59": {
+                "nvl": "MT",
+                "nombre": "Megaagotar",
+                "tipo": "Planta",
+                "poder": "40",
+                "pp": "15",
+                "precision": "100"
+            },
+            "60": {
+                "nvl": "MT",
+                "nombre": "Meteorobola",
+                "tipo": "Normal",
+                "poder": "50",
+                "pp": "10",
+                "precision": "100"
+            },
+            "61": {
+                "nvl": "MT",
+                "nombre": "Mimético",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "62": {
+                "nvl": "MT",
+                "nombre": "Pantalla Luz",
+                "tipo": "Psíquico",
+                "poder": "-",
+                "pp": "30",
+                "precision": "100"
+            },
+            "63": {
+                "nvl": "MT",
+                "nombre": "Poder Oculto",
+                "tipo": "Normal",
+                "poder": "60",
+                "pp": "15",
+                "precision": "100"
+            },
+            "64": {
+                "nvl": "MT",
+                "nombre": "Protección",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "65": {
+                "nvl": "MT",
+                "nombre": "Rayo Solar",
+                "tipo": "Planta",
+                "poder": "120",
+                "pp": "10",
+                "precision": "100"
+            },
+            "66": {
+                "nvl": "MT",
+                "nombre": "Recurrente",
+                "tipo": "Planta",
+                "poder": "25",
+                "pp": "30",
+                "precision": "100"
+            },
+            "67": {
+                "nvl": "MT",
+                "nombre": "Reflejo",
+                "tipo": "Psíquico",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "68": {
+                "nvl": "MT",
+                "nombre": "Refuerzo",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "69": {
+                "nvl": "MT",
+                "nombre": "Retroceso",
+                "tipo": "Normal",
+                "poder": "1",
+                "pp": "20",
+                "precision": "100"
+            },
+            "70": {
+                "nvl": "MT",
+                "nombre": "Seducción",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "71": {
+                "nvl": "MT",
+                "nombre": "Sonámbulo",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "72": {
+                "nvl": "MT",
+                "nombre": "Sustituto",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "73": {
+                "nvl": "MT",
+                "nombre": "Tóxico",
+                "tipo": "Veneno",
+                "poder": "-",
+                "pp": "10",
+                "precision": "90"
+            },
+            "74": {
+                "nvl": "MT",
+                "nombre": "V. Cortante",
+                "tipo": "Normal",
+                "poder": "80",
+                "pp": "10",
+                "precision": "100"
+            },
+            "75": {
+                "nvl": "MT",
+                "nombre": "Velo Sagrado",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "25",
+                "precision": "100"
+            },
+            "76": {
+                "nvl": "MT",
+                "nombre": "Venganza",
+                "tipo": "Normal",
+                "poder": "1",
+                "pp": "10",
+                "precision": "100"
+            },
+            "77": {
+                "nvl": "MO",
+                "nombre": "Corte",
+                "tipo": "Normal",
+                "poder": "50",
+                "pp": "30",
+                "precision": "95"
+            },
+            "78": {
+                "nvl": "MO",
+                "nombre": "Destello",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "79": {
+                "nvl": "MO",
+                "nombre": "Fuerza",
+                "tipo": "Normal",
+                "poder": "80",
+                "pp": "15",
+                "precision": "100"
+            },
+            "80": {
+                "nvl": "MO",
+                "nombre": "Golpe Roca",
+                "tipo": "Lucha",
+                "poder": "40",
+                "pp": "15",
+                "precision": "100"
+            },
+            "81": {
+                "nvl": "TUTOR",
+                "nombre": "Abatidoras",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "10",
+                "precision": "100"
+            },
+            "82": {
+                "nvl": "TUTOR",
+                "nombre": "Atadura",
+                "tipo": "Normal",
+                "poder": "15",
+                "pp": "20",
+                "precision": "85"
+            },
+            "83": {
+                "nvl": "TUTOR",
+                "nombre": "Bloqueo",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "5",
+                "precision": "100"
+            },
+            "84": {
+                "nvl": "TUTOR",
+                "nombre": "Disp. Demora",
+                "tipo": "Bicho",
+                "poder": "-",
+                "pp": "40",
+                "precision": "95"
+            },
+            "85": {
+                "nvl": "TUTOR",
+                "nombre": "Planta Feroz",
+                "tipo": "Planta",
+                "poder": "150",
+                "pp": "5",
+                "precision": "90"
+            },
+            "86": {
+                "nvl": "TUTOR",
+                "nombre": "Poder Pasado",
+                "tipo": "Roca",
+                "poder": "60",
+                "pp": "5",
+                "precision": "100"
+            },
+            "87": {
+                "nvl": "TUTOR",
+                "nombre": "Rizo Defensa",
+                "tipo": "Normal",
+                "poder": "-",
+                "pp": "40",
+                "precision": "100"
+            },
+            "88": {
+                "nvl": "TUTOR",
+                "nombre": "Ronquido",
+                "tipo": "Normal",
+                "poder": "50",
+                "pp": "15",
+                "precision": "100"
+            },
+            "89": {
+                "nvl": "TUTOR",
+                "nombre": "Síntesis",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "5",
+                "precision": "100"
+            },
+            "90": {
+                "nvl": "TUTOR",
+                "nombre": "Voto Planta",
+                "tipo": "Planta",
+                "poder": "80",
+                "pp": "10",
+                "precision": "100"
+            },
+            "91": {
+                "nvl": "HUEVO",
+                "nombre": "Arraigo",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "20",
+                "precision": "100"
+            },
+            "92": {
+                "nvl": "HUEVO",
+                "nombre": "Danza Pétalo",
+                "tipo": "Planta",
+                "poder": "120",
+                "pp": "10",
+                "precision": "100"
+            },
+            "93": {
+                "nvl": "HUEVO",
+                "nombre": "Residuos",
+                "tipo": "Veneno",
+                "poder": "65",
+                "pp": "20",
+                "precision": "100"
+            },
+            "94": {
+                "nvl": "HUEVO",
+                "nombre": "Silbato",
+                "tipo": "Planta",
+                "poder": "-",
+                "pp": "15",
+                "precision": "55"
+            }
+        }
+    }
+]

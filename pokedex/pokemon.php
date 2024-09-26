@@ -1,6 +1,3 @@
-<?php 
-$pokemonName = $_GET["name"];
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -27,32 +27,33 @@
 		<h1 class="h1-style">Pokedex Wiki PokeMMO No Oficial en Español</h1>
 		<p class="padding-no-bottom">¡Bienvenid@ a la pokedex de la wiki no oficial en español de PokeMMO! Aquí encontrarás una valiosa fuente de información sobre cada Pokémon de este multijugador en línea.</p>
 		<div class="buscador">
-			<input oninput="mostrarSugerencias()" class="input-buscador" type="text" placeholder="Buscar pokemon por nombre..">
+			<input oninput="mostrarSugerencias()" class="input-buscador" type="text" placeholder="Buscar pokemon por nombre.. (o numero de pokedex ej.001)">
 			<div class="sugerencias" id="sugerenciasContainer"></div>
 			<button onclick="buscarPokemon()">Buscar</button>
 		</div>
+
 		<div class="contenedor-mostrar-todo">
 			<button class="padding-all upper negro mostrartodo" onclick="location.reload()">Mostrar Todo</button>
 		</div>
 		<button onclick="mostrarFiltros()" class="btn-filtros">Filtros</button>
 		<div class="tiposfiltro" id="filtroDiv">
-			<button class="padding-all upper negro Planta" onclick="buscarTipo('grass')">Planta</button>
-			<button class="padding-all upper negro Fuego" onclick="buscarTipo('fire')">Fuego</button>
-			<button class="padding-all upper negro Veneno" onclick="buscarTipo('poison')">Veneno</button>
-			<button class="padding-all upper negro Volador" onclick="buscarTipo('flying')">Volador</button>
-			<button class="padding-all upper negro Agua" onclick="buscarTipo('water')">Agua</button>
-			<button class="padding-all upper negro Bicho" onclick="buscarTipo('bug')">Bicho</button>
-			<button class="padding-all upper negro Normal" onclick="buscarTipo('normal')">Normal</button>
-			<button class="padding-all upper negro Eléctrico" onclick="buscarTipo('electric')">Eléctrico</button>
-			<button class="padding-all upper negro Tierra" onclick="buscarTipo('ground')">Tierra</button>
-			<button class="padding-all upper Lucha" onclick="buscarTipo('fighting')">Lucha</button>
-			<button class="padding-all upper negro Psíquico" onclick="buscarTipo('psychic')">Psíquico</button>
-			<button class="padding-all upper negro Roca" onclick="buscarTipo('rock')">Roca</button>
-			<button class="padding-all upper negro Acero" onclick="buscarTipo('steel')">Acero</button>
-			<button class="padding-all upper negro Hielo" onclick="buscarTipo('ice')">Hielo</button>
-			<button class="padding-all upper Fantasma" onclick="buscarTipo('ghost')">Fantasma</button>
-			<button class="padding-all upper negro Dragón" onclick="buscarTipo('dragon')">Dragón</button>
-			<button class="padding-all upper Siniestro" onclick="buscarTipo('dark')">Siniestro</button>
+			<button class="padding-all upper negro Planta" onclick="buscarTipo('Planta')">Planta</button>
+			<button class="padding-all upper negro Fuego" onclick="buscarTipo('Fuego')">Fuego</button>
+			<button class="padding-all upper negro Veneno" onclick="buscarTipo('Veneno')">Veneno</button>
+			<button class="padding-all upper negro Volador" onclick="buscarTipo('Volador')">Volador</button>
+			<button class="padding-all upper negro Agua" onclick="buscarTipo('Agua')">Agua</button>
+			<button class="padding-all upper negro Bicho" onclick="buscarTipo('Bicho')">Bicho</button>
+			<button class="padding-all upper negro Normal" onclick="buscarTipo('Normal')">Normal</button>
+			<button class="padding-all upper negro Eléctrico" onclick="buscarTipo('Eléctrico')">Eléctrico</button>
+			<button class="padding-all upper negro Tierra" onclick="buscarTipo('Tierra')">Tierra</button>
+			<button class="padding-all upper Lucha" onclick="buscarTipo('Lucha')">Lucha</button>
+			<button class="padding-all upper negro Psíquico" onclick="buscarTipo('Psíquico')">Psíquico</button>
+			<button class="padding-all upper negro Roca" onclick="buscarTipo('Roca')">Roca</button>
+			<button class="padding-all upper negro Acero" onclick="buscarTipo('Acero')">Acero</button>
+			<button class="padding-all upper negro Hielo" onclick="buscarTipo('Hielo')">Hielo</button>
+			<button class="padding-all upper Fantasma" onclick="buscarTipo('Fantasma')">Fantasma</button>
+			<button class="padding-all upper negro Dragón" onclick="buscarTipo('Dragón')">Dragón</button>
+			<button class="padding-all upper Siniestro" onclick="buscarTipo('Siniestro')">Siniestro</button>
 		</div>
 		<div id="pokemonList"></div>
 		<div id="loadingIndicator">Cargando...</div>

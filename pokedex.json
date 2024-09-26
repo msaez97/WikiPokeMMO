@@ -1,0 +1,246 @@
+[
+    {
+        "nombre": "Bulbasaur",
+        "num_pokedex": "001",
+        "imgs": {
+            "img_default": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur_shiny.png"
+        },
+        "tipo": {
+            "desc": "Pokémon Semilla",
+            "0": "Planta",
+            "1": "Veneno"
+        },
+        "desc_pokemon": "Después de nacer, crece alimentándose de la semilla de su lomo.",
+        "altura": "0,7",
+        "peso": "6,9",
+        "habilidades": {
+            "0": "Espesura",
+            "hab_oculta": "Clorofila"
+        },
+        "obj_equipado": {
+            "0": {
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+                "name": "Ninguno"
+            }
+        },
+        "grupo_huevo": {
+            "0": "Monstruo",
+            "1": "Planta"
+        },
+        "evs_que_da": {
+            "0": "+1 At. Especial"
+        },
+        "tier_pvp": "Sin Tier",
+        "estadisticas": {
+            "hp": "45",
+            "atq": "49",
+            "def": "49",
+            "atqesp": "65",
+            "defesp": "65",
+            "vel": "45",
+            "total": "318"
+        },
+        "sitios": {
+            "0": {
+                "tipo": "Hierba",
+                "region": "Kanto",
+                "sitio": "BOSQUE VERDE",
+                "nvl": "10",
+                "rareza": "Señuelo"
+            }
+        },
+        "evoluciones": {
+            "0": {
+                "name": "Bulbasaur",
+                "type": "Nivel",
+                "valor": "0",
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png"
+            },
+            "1": {
+                "name": "Ivysaur",
+                "type": "Nivel",
+                "valor": "16",
+                "img": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur.png"
+            },
+            "2": {
+                "name": "Venusaur",
+                "type": "Nivel",
+                "valor": "32",
+                "img": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur.png"
+            }
+        }
+    },
+    {
+        "nombre": "Ivysaur",
+        "num_pokedex": "002",
+        "imgs": {
+            "img_default": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur.png",
+            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur_shiny.png"
+        },
+        "tipo": {
+            "desc": "Pokémon Semilla",
+            "0": "Planta",
+            "1": "Veneno"
+        },
+        "desc_pokemon": "Cuando el capullo de su lomo se hincha, desprende un dulce aroma para indicar el florecimiento.",
+        "altura": "1,0",
+        "peso": "13,0",
+        "habilidades": {
+            "0": "Espesura",
+            "hab_oculta": "Clorofila"
+        },
+        "obj_equipado": {
+            "0": {
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+                "name": "Ninguno"
+            },
+            "1": {
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+                "name": "Ninguno"
+            },
+            "2": {
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+                "name": "Ninguno"
+            },
+            "3": {
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+                "name": "Ninguno"
+            }
+        },
+        "grupo_huevo": {
+            "0": "Monstruo",
+            "1": "Planta"
+        },
+        "evs_que_da": {
+            "0": "+1 At. Especial",
+            "1": "+1 Def. Especial"
+        },
+        "tier_pvp": "Sin Tier",
+        "estadisticas": {
+            "hp": "60",
+            "atq": "62",
+            "def": "63",
+            "atqesp": "80",
+            "defesp": "80",
+            "vel": "60",
+            "total": "405"
+        },
+        "sitios": {
+            "0": {
+                "tipo": "Hierba",
+                "region": "Kanto",
+                "sitio": "RUTA 5",
+                "nvl": "19",
+                "rareza": "Señuelo"
+            },
+            "1": {
+                "tipo": "Hierba",
+                "region": "Kanto",
+                "sitio": "RUTA 5",
+                "nvl": "19",
+                "rareza": "Señuelo"
+            },
+            "2": {
+                "tipo": "Hierba",
+                "region": "Kanto",
+                "sitio": "RUTA 5",
+                "nvl": "19",
+                "rareza": "Señuelo"
+            }
+        },
+        "evoluciones": {
+            "0": {
+                "name": "Bulbasaur",
+                "type": "Nivel",
+                "valor": "0",
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png"
+            },
+            "1": {
+                "name": "Ivysaur",
+                "type": "Nivel",
+                "valor": "16",
+                "img": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur.png"
+            },
+            "2": {
+                "name": "Venusaur",
+                "type": "Nivel",
+                "valor": "32",
+                "img": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur.png"
+            }
+        }
+    },
+    {
+        "nombre": "Venusaur",
+        "num_pokedex": "003",
+        "imgs": {
+            "img_default": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur.png",
+            "img_default_shiny": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur_shiny.png"
+        },
+        "tipo": {
+            "desc": "Pokémon Semilla",
+            "0": "Planta",
+            "1": "Veneno"
+        },
+        "desc_pokemon": "Después de un día de lluvia, la flor de su lomo tiene un aroma más potente y atrae a otros Pokémon.",
+        "altura": "2,0",
+        "peso": "100,0",
+        "habilidades": {
+            "0": "Espesura",
+            "hab_oculta": "Clorofila"
+        },
+        "obj_equipado": {
+            "0": {
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png",
+                "name": "Ninguno"
+            }
+        },
+        "grupo_huevo": {
+            "0": "Monstruo",
+            "1": "Planta"
+        },
+        "evs_que_da": {
+            "0": "+2 At. Especial",
+            "1": "+1 Def. Especial"
+        },
+        "tier_pvp": "Under Used",
+        "estadisticas": {
+            "hp": "80",
+            "atq": "82",
+            "def": "83",
+            "atqesp": "100",
+            "defesp": "100",
+            "vel": "80",
+            "total": "525"
+        },
+        "sitios": {
+            "0": {
+                "tipo": "-",
+                "region": "-",
+                "sitio": "No hay ningún sitio.",
+                "nvl": "-",
+                "rareza": "-"
+            }
+        },
+        "evoluciones": {
+            "0": {
+                "name": "Bulbasaur",
+                "type": "Nivel",
+                "valor": "0",
+                "img": "https://wiki-pokemmo.com/img/pokedex/bulbasaur/bulbasaur.png"
+            },
+            "1": {
+                "name": "Ivysaur",
+                "type": "Nivel",
+                "valor": "16",
+                "img": "https://wiki-pokemmo.com/img/pokedex/ivysaur/ivysaur.png"
+            },
+            "2": {
+                "name": "Venusaur",
+                "type": "Nivel",
+                "valor": "32",
+                "img": "https://wiki-pokemmo.com/img/pokedex/venusaur/venusaur.png"
+            }
+        }
+    }
+]

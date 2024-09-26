@@ -1,24 +1,24 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.*)$ $1.php
-#RewriteRule ^([a-z]+)/?$ $1.php [NC]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.php -f
+# RewriteRule ^(.*)$ $1.php
+# #RewriteRule ^([a-z]+)/?$ $1.php [NC]
 
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html
-#RewriteRule ^([a-z]+)/?$ $1.html [NC]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}.html -f
+# RewriteRule ^(.*)$ $1.html
+# #RewriteRule ^([a-z]+)/?$ $1.html [NC]
 
-</IfModule>
+# </IfModule>
 
-RewriteEngine On
-RewriteBase /
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://wiki-pokemmo.com/$1 [L,R]
+# RewriteEngine On
+# RewriteBase /
+# RewriteCond %{SERVER_PORT} 80
+# RewriteRule ^(.*)$ https://wiki-pokemmo.com/$1 [L,R]
 
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.wiki-pokemmo.com [NC]
-RewriteRule ^(.*)$ https://wiki-pokemmo.com%{REQUEST_URI} [L,R=301,NC]
+# RewriteEngine On
+# RewriteCond %{HTTP_HOST} ^www.wiki-pokemmo.com [NC]
+# RewriteRule ^(.*)$ https://wiki-pokemmo.com%{REQUEST_URI} [L,R=301,NC]

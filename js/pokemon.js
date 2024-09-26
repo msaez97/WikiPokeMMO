@@ -1,31 +1,37 @@
 const id = new URLSearchParams(window.location.search);
 const pokemonId = id.get("id");
-const mensajeCarga = document.querySelector(".mensajeCarga");
 
 getPokemon(pokemonId);
 
 async function getPokemon(pokemonId) {
     try {
-        // Mostrar mensaje de carga
-        mensajeCarga.style.display = "block";
+        // Cargar los datos del archivo JSON
+        const response = await fetch('../pokedex.json');
+        const data = await response.json();
 
-        // Convertir pokemonId a número para asegurar la correcta evaluación
-        const numericPokemonId = parseInt(pokemonId, 10);
-
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${numericPokemonId}`);
-        const pokemon = await response.json();
+        // Encontrar el Pokémon en los datos cargados
+        const pokemon = data.find(p => p.num_pokedex === pokemonId);
+        const pokemonIdInt = parseInt(pokemonId, 10);
 
         let pokemonAnterior = null;
         let pokemonSiguiente = null;
 
-        if (numericPokemonId >= 2 && numericPokemonId <= 647) {
-            pokemonAnterior = await getPokemonData(numericPokemonId - 1);
-            pokemonSiguiente = await getPokemonData(numericPokemonId + 1);
-        } else if (numericPokemonId == 648) {
-            pokemonAnterior = await getPokemonData(numericPokemonId - 1);
+        if (pokemonId >= 2 && pokemonId <= 647) {
+            pokemonAnterior = pokemonIdInt - 1;
+            pokemonSiguiente = pokemonIdInt + 1;
+        } else if (pokemonId == 648) {
+            pokemonAnterior = pokemonIdInt - 1;
         } else {
-            pokemonSiguiente = await getPokemonData(numericPokemonId + 1);
+            pokemonSiguiente = pokemonIdInt + 1;
         }
+
+        if(pokemonAnterior < 10) {pokemonAnterior = "00" + pokemonAnterior}
+        if(pokemonAnterior >= 10 && pokemonAnterior < 100) {pokemonAnterior = "0" + pokemonAnterior}
+        if(pokemonSiguiente < 10) {pokemonSiguiente = "00" + pokemonSiguiente}
+        if(pokemonSiguiente >= 10 && pokemonSiguiente < 100) {pokemonSiguiente = "0" + pokemonSiguiente}
+
+        pokemonAnterior = data.find(p => p.num_pokedex === String(pokemonAnterior));
+        pokemonSiguiente = data.find(p => p.num_pokedex === String(pokemonSiguiente));
 
         cartaPokemon(pokemon, pokemonAnterior, pokemonSiguiente);
 
@@ -34,230 +40,123 @@ async function getPokemon(pokemonId) {
     }
 }
 
-async function getPokemonData(pokemonId) {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-    return response.json();
-}
-
-function traducirTipo(tipo) {
-    const traducciones = {
-        "grass": "Planta",
-        "poison": "Veneno",
-        "fire": "Fuego",
-        "flying": "Volador",
-        "water": "Agua",
-        "bug": "Bicho",
-        "normal": "Normal",
-        "electric": "Eléctrico",
-        "ground": "Tierra",
-        "fairy": "Hada",
-        "fighting": "Lucha",
-        "psychic": "Psíquico",
-        "rock": "Roca",
-        "steel": "Acero",
-        "ice": "Hielo",
-        "ghost": "Fantasma",
-        "dragon": "Dragón",
-        "dark": "Siniestro"
-    };
-
-    return traducciones[tipo] || tipo;
-}
-
-async function getPokemonAbilities(pokemonId) {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-    const data = await response.json();
-    const abilities = data.abilities;
-
-    const abilitiesData = await Promise.all(abilities.map(async (ability) => {
-        const abilityResponse = await fetch(ability.ability.url);
-        const abilityData = await abilityResponse.json();
-
-        const translatedName = abilityData.names.find(name => name.language.name === 'es').name;
-        const isHidden = ability.is_hidden;
-
-        return { name: translatedName, isHidden: isHidden };
-    }));
-
-    return abilitiesData;
-}
-
-async function getPokemonEvolutions(pokemonId) {
-    try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
-        const data = await response.json();
-
-        const evolutionChainUrl = data.evolution_chain.url;
-        const evolutionChainResponse = await fetch(evolutionChainUrl);
-        const evolutionChainData = await evolutionChainResponse.json();
-
-        const evolutions = parseEvolutionChain(evolutionChainData.chain);
-
-        return evolutions;
-    } catch (error) {
-        console.error(error);
-        return {};
-    }
-}
-
-async function getPokemonEggGroups(pokemonId) {
-    try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
-        const speciesData = await response.json();
-
-        const eggGroupNames = speciesData.egg_groups.map(eggGroup => eggGroup.name);
-        return eggGroupNames;
-    } catch (error) {
-        console.error(`Error al obtener los grupos de huevos para el Pokémon ${pokemonId}: ${error}`);
-        return [];
-    }
-}
-
-async function parseEvolutionChain(chain) {
-    const evolution = {
-        species: chain.species.name,
-        isTriggeredByItem: chain.evolution_details.some(detail => detail.item),
-        triggerItem: chain.evolution_details.find(detail => detail.item)?.item?.name,
-    };
-
-    // Obtener el nivel de evolución si existe
-    const levelUpDetails = chain.evolution_details.find(detail => detail.trigger.name === "level-up");
-    if (levelUpDetails) {
-        evolution.minLevel = levelUpDetails.min_level;
-    }
-
-    try {
-        const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${evolution.species}`);
-        const speciesData = await speciesResponse.json();
-        evolution.spriteUrl = speciesData.sprites.front_default;
-    } catch (error) {
-        console.error(`Error al obtener la URL de la imagen para ${evolution.species}: ${error}`);
-    } finally {
-        // Ocultar mensaje de carga después de que se complete la carga
-        mensajeCarga.style.display = "none";
-    }
-
-    if (chain.evolves_to && chain.evolves_to.length > 0) {
-        evolution.evolvesTo = await Promise.all(
-            chain.evolves_to.map(async subChain => parseEvolutionChain(subChain))
-        );
-    }
-
-    return evolution;
-}
-
 async function cartaPokemon(pokemon, pokemonAnterior, pokemonSiguiente) {
-    const nombrePokemon = document.querySelector(".cartaPokemon");
-    const nombrePoke = pokemon.name;
-    const tipos = pokemon.types.map(type => `<p class="${type.type.name}">${traducirTipo(type.type.name)}</p>`).join('');
-    const imagen = pokemon.sprites.other["official-artwork"].front_default;;
-    const peso = pokemon.weight / 10;
-    const altura = pokemon.height / 10;
-
-    const imagenPokeActual = pokemon.sprites.front_default;
-    const imagenPokeAnterior = pokemonAnterior ? pokemonAnterior.sprites.front_default : "";
-    const imagenPokeSiguiente = pokemonSiguiente ? pokemonSiguiente.sprites.front_default : "";
-
-    const gruposHuevo = await getPokemonEggGroups(pokemon.id);
-    const gruposHuevoHTML = gruposHuevo.map(grupo => `<p>${traducirGrupoHuevo(grupo)}</p>`).join('');
-
-    const habilidadesData = await getPokemonAbilities(pokemon.id);
-    const habilidadesHTML = habilidadesData.map(ability => {
-        const isHiddenText = ability.isHidden ? "Habilidad Oculta: " : "Habilidad: ";
-        return `<p class="PokeHabilidadesCarta">${isHiddenText}<a href="">${ability.name}</a></p>`;
-    }).join('');
-
-    const evoluciones = await getPokemonEvolutions(pokemon.id);
-    const evolucionesHTML = renderEvolutions(evoluciones);
-
+    const cartaPokemon = document.querySelector(".cartaPokemon");
     const cartaInfo = `
+        <div class="container_flex">
         <div class="cartaInfo">
-            <img class="imagenPoke" src="${imagen}" alt="imagen ${nombrePoke}" width="150" height="150">
+            <h3 style="padding: 0.5rem;">Num. Pokédex: #${pokemon.num_pokedex}</h3>
+            <img class="imagenPoke" src="${pokemon.imgs["img_default"]}" alt="imagen ${pokemon.nombre}" width="150" height="150">
             <button id="cambiarShiny" onclick="cambiarShiny()">Ver Shiny</button>
             <div class="infoPoke">
-                ${pokemonAnterior ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonAnterior.id}&name=${pokemonAnterior.name}"><img src="${imagenPokeAnterior}" alt="${pokemonAnterior.name}" width="32" height="32">←</a>` : ''}
-                <p><img src="${imagenPokeActual}" alt="${nombrePoke}" width="32" height="32">${nombrePoke}</p>
-                ${pokemonSiguiente ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonSiguiente.id}&name=${pokemonSiguiente.name}">→<img src="${imagenPokeSiguiente}" alt="${pokemonSiguiente.name}" width="32" height="32"></a>` : ''}
+                ${pokemonAnterior ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonAnterior.num_pokedex}"><img src="${pokemonAnterior.imgs["img_default"]}" alt="${pokemonAnterior.nombre}" width="32" height="32">←</a>` : ''}
+                <p><img src="${pokemon.imgs["img_default"]}" alt="${pokemon.nombre}" width="32" height="32">${pokemon.nombre}</p>
+                ${pokemonSiguiente ? `<a href="http://wiki-pokemmo.com/pokedex/pokemon.php?id=${pokemonSiguiente.num_pokedex}">→<img src="${pokemonSiguiente.imgs["img_default"]}" alt="${pokemonSiguiente.nombre}" width="32" height="32"></a>` : ''}
             </div>
             <div class="cartaPokeTipos">
-                ${tipos}
+                <p class="${pokemon.tipo[0]}">${pokemon.tipo[0]}</p>
+                ${pokemon.tipo[1] ? `<p class="${pokemon.tipo[1]}">${pokemon.tipo[1]}</p>` : ""}
             </div>
         </div>
         <div class="cartaPokeGruposHuevo">
-            <p class="grupoHuevoTitulo">Grupos Huevo</p>
+            <h3 class="grupoHuevoTitulo">Grupo Huevo</h3>
             <div class="grupoHuevoInnerJs">
-                ${gruposHuevoHTML}
+                ${pokemon.grupo_huevo[0] ? `<p>${pokemon.grupo_huevo[0]}</p>` : ""}
+                ${pokemon.grupo_huevo[1] ? `<p>${pokemon.grupo_huevo[1]}</p>` : ""}
             </div>
         </div>
         <div class="cartaPokeHabilidades">
-            ${habilidadesHTML}
+            ${pokemon.habilidades[0] ? `<p class="PokeHabilidadesCarta">Habilidad: <a href="">${pokemon.habilidades[0]}</a></p>` : ""}
+            ${pokemon.habilidades[1] ? `<p class="PokeHabilidadesCarta">Habilidad: <a href="">${pokemon.habilidades[1]}</a></p>` : ""}
+            ${pokemon.habilidades[2] ? `<p class="PokeHabilidadesCarta">Habilidad: <a href="">${pokemon.habilidades[2]}</a></p>` : ""}
+            ${pokemon.habilidades[3] ? `<p class="PokeHabilidadesCarta">Habilidad: <a href="">${pokemon.habilidades[3]}</a></p>` : ""}
+            ${pokemon.habilidades["hab_oculta"] ? `<p class="PokeHabilidadesCarta">Hab. Oculta: <a href="">${pokemon.habilidades["hab_oculta"]}</a></p>` : ""}
+            ${pokemon.habilidades["hab_oculta2"] ? `<p class="PokeHabilidadesCarta">Hab. Oculta: <a href="">${pokemon.habilidades["hab_oculta2"]}</a></p>` : ""}
         </div>
         <div class="cartaMedidas">
-            <p>Peso: ${peso}kg</p>
-            <p>Altura: ${altura}m</p>
+            <p>Peso: ${pokemon.peso}kg</p>
+            <p>Altura: ${pokemon.altura}m</p>
         </div>
-        <div class="cartaPokeEvoluciones">
-            <p style="padding: 0 .75rem;">Evoluciones</p>
+        ${pokemon.evoluciones ? `<div class="cartaPokeEvoluciones">
+            <h3 style="padding: 0 .75rem; text-decoration: underline;">Evoluciones</h3>
             <div class="datosEvoPoke">
-                ${evolucionesHTML}
+                ${pokemon.evoluciones[0] ? `<div class="evolutionInfo"><p></p><img src="${pokemon.evoluciones[0].img}" alt="${pokemon.evoluciones[0].name}" width="100" height="100"/></div>` : ""}
+                ${pokemon.evoluciones[1] ? `<div class="evolutionInfo"><p>${pokemon.evoluciones[1].type + "→" + pokemon.evoluciones[1].valor}</p><img src="${pokemon.evoluciones[1].img}" alt="${pokemon.evoluciones[1].name}"  width="100" height="100"/></div>` : ""}
+                ${pokemon.evoluciones[2] ? `<div class="evolutionInfo"><p>${pokemon.evoluciones[2].type + "→" + pokemon.evoluciones[2].valor}</p><img src="${pokemon.evoluciones[2].img}" alt="${pokemon.evoluciones[2].name}"  width="100" height="100"/></div>` : ""}
+            </div>
+        </div>`: ""}
+        <div class="stats"></div>
+        <div class="obj_equipados">
+            <h3 class="obj_titulo">Objetos Equipados</h3>
+            <div class="obj_container">
+                ${Object.entries(pokemon.obj_equipado).map(([key, obj]) => `
+                    <p style="display: flex; justify-content: center;"><img src="${obj.img}" width="20" height="20"/>${obj.name}</p>
+                `).join('') || ''}
             </div>
         </div>
-        <div class="stats"></div>
+        <div class="obj_equipados">
+            <h3 class="obj_titulo">EV'S por Derrotar</h3>
+            <div class="obj_container">
+                ${Object.entries(pokemon.evs_que_da).map(([key, evs]) => `
+                    <p>${evs}</p>
+                `).join('') || ''}
+            </div>
+        </div>
+        <div class="obj_equipados">
+            <h3 class="obj_titulo">Tier PVP</h3>
+            <p style="text-align: center;">${pokemon.tier_pvp}</p>
+        </div>
+        </div>
         <div class="left-main">
-            <h1>${nombrePoke}</h1>
+            <h1>${pokemon.nombre}</h1>
+            <br>
+            <h3>Descripción de la Pokédex</h3>
+            <hr>
+            <p>"${pokemon.desc_pokemon}"</p>
+            <br>
+            <p><span style="font-weight: bold;">${pokemon.nombre}</span> es un Pokémon de tipo ${pokemon.tipo[0]} ${pokemon.tipo[1] ? `y como segundo tipo ${pokemon.tipo[1]}` : ""}, ${pokemon.evoluciones ? `es de la rama evolutiva de  ${pokemon.evoluciones[0].name}` : ""}, cada vez que se derrota en un combate puede darte ${pokemon.evs_que_da[0]}${pokemon.evs_que_da[1] ? ` y ${pokemon.evs_que_da[1]}` : ""} en EV's al pokémon con el que lo has derrotado.</p>
+            <br>
+            <h3>Localización | Donde capturar a ${pokemon.nombre}</h3>
+            <hr style="margin-bottom: 1rem;">
+            <table class="tabla_sitios">
+                <thead>
+                    <tr>
+                        <td style="font-weight: bold; text-align: center; background-color: #496475;">Tipo</td>
+                        <td style="font-weight: bold; text-align: center; background-color: #496475; width: 90px;">Región</td>
+                        <td style="font-weight: bold; text-align: center; background-color: #496475; width: 200px;">Sitio</td>
+                        <td style="font-weight: bold; text-align: center; background-color: #496475; width: 70px;">Niveles</td>
+                        <td style="font-weight: bold; text-align: center; background-color: #496475;">Rareza</td>
+                    </tr>
+                </thead>
+                <tbody id="miTabla">
+                    ${Object.entries(pokemon.sitios).map(([key, sitio]) => `
+                        <tr>
+                            <td>${sitio.tipo}</td>
+                            <td style="width: 90px;">${sitio.region}</td>
+                            <td style="width: 200px;">${sitio.sitio}</td>
+                            <td style="text-align: center; width: 70px;">${sitio.nvl}</td>
+                            <td style="text-align: center;">${sitio.rareza}</td>
+                        </tr>
+                    `).join('') || ''}
+                </tbody>
+            </table>
+            <br>
+            <h3>Todos los movimientos que aprende ${pokemon.nombre}</h3>
+            <hr style="margin-bottom: 1rem;">
+            <br>
         </div>
     `;
 
-    nombrePokemon.innerHTML += cartaInfo;
+    cartaPokemon.innerHTML += cartaInfo;
 
-    crearBarra(pokemon.stats[0].base_stat, "HP");
-    crearBarra(pokemon.stats[1].base_stat, "ATQ");
-    crearBarra(pokemon.stats[2].base_stat, "DEF");
-    crearBarra(pokemon.stats[3].base_stat, "ATQESP");
-    crearBarra(pokemon.stats[4].base_stat, "DEFESP");
-    crearBarra(pokemon.stats[5].base_stat, "VEL");
+    crearBarra(pokemon.estadisticas["hp"], "HP");
+    crearBarra(pokemon.estadisticas["atq"], "ATQ");
+    crearBarra(pokemon.estadisticas["def"], "DEF");
+    crearBarra(pokemon.estadisticas["atqesp"], "ATQESP");
+    crearBarra(pokemon.estadisticas["defesp"], "DEFESP");
+    crearBarra(pokemon.estadisticas["vel"], "VEL");
 
-    quitarHada(nombrePoke, ["mr-mime", "gardevoir", "marill", "azumarill", "wigglytuff", "jigglypuff", "igglybuff", "ralts", "kirlia", "mawile", "mime-jr", "cottonee", "whimsicott", "azurill"]);
 }
-
-function renderEvolutions(evolution) {
-    if (!evolution.species) {
-        return "<p>No hay información de evolución disponible.</p>";
-    }
-
-    let html = "";
-
-    function renderNode(node) {
-        html += `<div class="evolutionInfo">`;
-        
-        html += `<p>`;
-        if (node.minLevel) {
-            html += `Nvl: ${node.minLevel}`;
-        }
-        if (node.isTriggeredByItem) {
-            html += `Itm: ${node.triggerItem}`;
-        }
-        html += `</p>`;
-
-        // Agregar la imagen del Pokémon si está disponible
-        if (node.spriteUrl) {
-            html += `<img src="${node.spriteUrl}" alt="${node.species}" class="evolutionSprite">`;
-        }
-
-        html += `</div>`;
-
-        if (node.evolvesTo && node.evolvesTo.length > 0) {
-            node.evolvesTo.forEach(subNode => {
-                renderNode(subNode);
-            });
-        }
-    }
-
-    renderNode(evolution);
-
-    return html;
-}
-
 
 function crearBarra(valor, nombre) {
     const barra = document.createElement("div");
@@ -286,65 +185,35 @@ function crearBarra(valor, nombre) {
 function cambiarShiny() {
     const imagenPoke = document.querySelector(".imagenPoke");
     const botonShiny = document.querySelector("#cambiarShiny");
+    const h1NombrePoke = document.querySelector("body > div.cartaPokemon > div.left-main > h1");
 
-    const id = new URLSearchParams(window.location.search);
-    const pokemonId = id.get("id");
+    const nombrePoke = h1NombrePoke.textContent;
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-        .then(response => response.json())
-        .then(data => {
-            const shinyImage = data.sprites.other["official-artwork"].front_shiny;
-            const defaultImage = data.sprites.other["official-artwork"].front_default;
+    // Guarda la URL actual de la imagen (original)
+    let defaultImage = imagenPoke.dataset.defaultImage || imagenPoke.src;
 
-            if (imagenPoke.src !== shinyImage) {
-                imagenPoke.src = shinyImage;
-                botonShiny.innerHTML = "Ver Normal";
-            } else {
-                imagenPoke.src = defaultImage;
-                botonShiny.innerHTML = "Ver Shiny";
-            }
-        })
-}
+    // URL de la imagen shiny
+    let imagenNormal = new URL(defaultImage);
+    imagenNormal.pathname = `/pruebawiki/img/pokedex/${nombrePoke}/${nombrePoke}_shiny.png`;
+    let imagenShiny = imagenNormal.toString();
 
-function quitarHada(nombrePoke, tiposHada) {
-    if (tiposHada.includes(nombrePoke)) {
-        document.querySelector(".Hada").remove();
+    // Guarda la URL original en un data-attribute si aún no se ha guardado
+    if (!imagenPoke.dataset.defaultImage) {
+        imagenPoke.dataset.defaultImage = defaultImage;
+    }
+
+    // Verifica si la imagen actual es la shiny o no
+    if (imagenPoke.src === imagenShiny) {
+        // Cambiar a imagen normal
+        imagenPoke.src = imagenPoke.dataset.defaultImage;
+        botonShiny.innerHTML = "Ver Shiny";
+    } else {
+        // Cambiar a imagen shiny
+        imagenPoke.src = imagenShiny;
+        botonShiny.innerHTML = "Ver Normal";
     }
 }
 
-function traducirGrupoHuevo(nombreGrupo) {
-    switch (nombreGrupo) {
-        case 'monster':
-            return 'Monstruo';
-        case 'water1':
-            return 'Agua 1';
-        case 'bug':
-            return 'Bicho';
-        case 'flying':
-            return 'Volador';
-        case 'ground':
-            return 'Campo';
-        case 'fairy':
-            return 'Hada';
-        case 'plant':
-            return 'Planta';
-        case 'humanshape':
-            return 'Forma Humana';
-        case 'water3':
-            return 'Agua 3';
-        case 'mineral':
-            return 'Mineral';
-        case 'amorphous':
-            return 'Amorfo';
-        case 'water2':
-            return 'Agua 2';
-        case 'ditto':
-            return 'Ditto';
-        case 'dragon':
-            return 'Dragón';
-        case 'undiscovered':
-            return 'Desconocido';
-        default:
-            return nombreGrupo;
-    }
+function getSitios(sitios) {
+
 }

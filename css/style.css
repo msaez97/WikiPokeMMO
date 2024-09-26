@@ -354,6 +354,7 @@ a {
 }
 .pokemon img {
 	width: 100%;
+	height: 100%;
 }
 .id_nombre {
 	display: flex;
@@ -504,11 +505,12 @@ a {
 }
 @media (min-width: 950px) {
 	.cartaPokemon {
-		display: grid;
+		display: flex;
 		grid-template-columns: repeat(6, 1fr);
 		gap: 1rem;
 		max-width: 120rem;
 		margin: 1rem auto;
+		flex-direction: row-reverse;
 	}
 }
 .stats {
@@ -518,12 +520,6 @@ a {
 	padding: 1rem;
 	border: 2px solid var(--negro);
 	border-radius: 1rem;
-}
-@media (min-width: 950px) {
-	.stats {
-		margin: 0;
-		grid-column: 5 / 7;
-	}
 }
 .rellena_barraHP {
 	height: .5rem;
@@ -602,11 +598,6 @@ a {
 	border: 2px solid var(--negro);
 	border-radius: 1rem;
 }
-@media (min-width: 950px) {
-	.cartaInfo {
-		grid-column: 5 / 7;
-	}
-}
 .imagenPoke {
 	width: 100%;
 	height: auto;
@@ -664,17 +655,9 @@ a {
 	grid-template-columns: 1fr 1fr;
 	gap: .25rem;
 }
-@media (min-width: 950px) {
-	.cartaPokeHabilidades {
-		margin: 0;
-	}
-}
 .PokeHabilidadesCarta {
 	width: 100%;
 	padding: .25rem;
-}
-.PokeHabilidadesCarta:last-child {
-	grid-column: 1 / 3;
 }
 .PokeHabilidadesCarta a {
 	color: #A05038;
@@ -687,11 +670,6 @@ a {
 	margin: 1rem 0;
 	text-align: center;
 }
-@media (min-width: 950px) {
-	.cartaPokeEvoluciones {
-		margin: 0;
-	}
-}
 .datosEvoPoke {
 	display: flex;
 	align-items: center;
@@ -703,7 +681,9 @@ a {
 	justify-content: center;
 }
 .evolutionInfo img {
-	width: 10rem;
+	width: 5rem;
+	height: 5rem;
+	margin: 2.5rem 0;
 }
 .cartaMedidas {
 	grid-column: 5 / 7;
@@ -714,11 +694,6 @@ a {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-}
-@media (min-width: 950px) {
-	.cartaMedidas {
-		margin: 0;
-	}
 }
 .cartaPokeGruposHuevo {
 	grid-column: 5 / 7;
@@ -731,16 +706,29 @@ a {
 	text-align: center;
 	text-decoration: underline;
 }
-@media (min-width: 950px) {
-	.cartaPokeGruposHuevo {
-		margin: 0;
-	}
-}
 .grupoHuevoInnerJs {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
 	gap: .5rem;
+}
+.obj_equipados {
+	grid-column: 5 / 7;
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+	padding: .5rem;
+}
+.obj_titulo {
+	text-align: center;
+	text-decoration: underline;
+	margin-bottom: 0.55rem;
+}
+.obj_container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: .25rem;
+	text-align: center;
 }
 .left-main {
 	grid-row: 1 / 1;
@@ -749,4 +737,25 @@ a {
 .left-main h1 {
 	text-transform: uppercase;
 	border-bottom: 2px solid var(--negro);
+}
+table , td, th {
+	border: 2px solid var(--negro);
+	color: var(--blanco);
+	background-color: #393e42;
+}
+td, th {
+	padding: 3px;
+	width: 160px;
+	height: 25px;
+	border: 1px solid var(--blanco);
+	border-radius: .5rem;
+}
+th {
+	background: #f0e6cc;
+}
+.even {
+	background: #fbf8f0;
+}
+.odd {
+	background: #fefcf9;
 }
