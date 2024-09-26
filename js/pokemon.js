@@ -187,7 +187,9 @@ function cambiarShiny() {
     const botonShiny = document.querySelector("#cambiarShiny");
     const h1NombrePoke = document.querySelector("body > div.cartaPokemon > div.left-main > h1");
 
-    const nombrePoke = h1NombrePoke.textContent.toLowerCase;
+    const nombrePoke = h1NombrePoke.textContent.toLowerCase();
+
+    console.log(nombrePoke)
 
     // Guarda la URL actual de la imagen (original)
     let defaultImage = imagenPoke.dataset.defaultImage || imagenPoke.src;
