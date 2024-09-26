@@ -29,6 +29,7 @@ $pokemonName = $_GET["name"];
 
 
     <div class="cartaPokemon"></div>
+    <p>Hola Pokemon</p>
 
     <script src="../js/pokemon.js"></script>
     <script src="../js/nav.js"></script>
