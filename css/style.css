@@ -1,0 +1,752 @@
+:root {
+	--blanco: #ffffff;
+	--negro: #000000;
+	--gris: #f1f1f1;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */  
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+	font-size: 1.6rem;
+}
+a {
+ text-decoration: none;
+}
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: var(--negro);
+	border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+	background-color: #f1f1f1;
+}
+  ::-webkit-scrollbar-thumb:hover {
+	background-color: var(--negro);
+}
+
+/* REUTILIZABLES */
+.Planta, .Fuego, .Veneno,
+.Volador, .Agua, .Bicho,
+.Normal, .Eléctrico, .Tierra,
+.Hada, .Lucha, .Psíquico, 
+.Roca, .Acero, .Hielo, 
+.Fantasma, .Dragón, .Siniestro {
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+}
+.Planta, .grass {
+	background-color: #78C850;
+}
+.Veneno, .poison {
+	background-color: #B058A0;
+}
+.Fuego, .fire {
+	background-color: #F05030;
+}
+.Volador, .flying {
+	background-color: #98A8F0;
+}
+.Agua, .water {
+	background-color: #3899F8;
+}
+.Bicho, .bug {
+	background-color: #A8B820;
+}
+.Normal, .normal {
+	background-color: #A8A090;
+}
+.Eléctrico, .electric {
+	background-color: #F8D030;
+}
+.Tierra, .ground {
+	background-color: #E9D6A4;
+}
+.Hada, .fairy {
+	background-color: #E79FE7;
+}
+.Lucha, .fighting {
+	background-color: #A05038;
+	color: var(--blanco);
+}
+.Psíquico, .psychic {
+	background-color: #F870A0;
+}
+.Roca, .rock {
+	background-color: #B8A058;
+}
+.Acero, .steel {
+	background-color: #A8A8C0;
+}
+.Hielo, .ice {
+	background-color: #58C8E0;
+}
+.Fantasma, .ghost {
+	background-color: #6060B0;
+	color: var(--blanco);
+}
+.Dragón, .dragon {
+	background-color: #7860E0;
+}
+.Siniestro, .dark {
+	background-color: #7A5848;
+	color: var(--blanco);
+}
+.PlantaColor {
+	color: #78C850;
+}
+.VenenoColor {
+	color: #B058A0;
+}
+.FuegoColor {
+	color: #F05030;
+}
+.VoladorColor {
+	color: #98A8F0;
+}
+.AguaColor {
+	color: #3899F8;
+}
+.BichoColor {
+	color: #A8B820;
+}
+.NormalColor {
+	color: #A8A090;
+}
+.EléctricoColor {
+	color: #F8D030;
+}
+.TierraColor {
+	color: #E9D6A4;
+}
+.HadaColor {
+	color: #E79FE7;
+}
+.LuchaColor {
+	color: #A05038;
+}
+.PsíquicoColor {
+	color: #F870A0;
+}
+.RocaColor {
+	color: #B8A058;
+}
+.AceroColor {
+	color: #A8A8C0;
+}
+.HieloColor {
+	color: #58C8E0;
+}
+.FantasmaColor {
+	color: #6060B0;
+}
+.DragónColor {
+	color: #7860E0;
+}
+.SiniestroColor {
+	color: #7A5848;
+}
+#loadingIndicator {
+	display: none;
+	text-align: center;
+	margin: 10px;
+	font-size: 18px;
+}
+.contenedor {
+	max-width: 120rem;
+	margin: 0 auto;
+}
+.padding-all {
+	padding: 1rem;
+}
+.padding-no-bottom {
+	padding: 1rem 1rem 0 1rem;
+}
+.upper {
+	text-transform: uppercase;
+}
+.negro {
+	color: var(--negro);
+}
+.underline {
+	text-decoration: underline;
+}
+
+/* HEADER */
+.header-container {
+	box-shadow: 0 0 1rem .5rem rgba(0, 0, 0, 0.2);
+}
+.header-top {
+	text-align: center;
+	padding: 1rem 0;
+}
+.logo-header {
+	max-width: 20rem;
+	width: 20rem;
+	height: auto;
+}
+.header-bottom {
+	padding: .5rem;
+
+}
+.navegacion {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: .5rem;
+}
+@media (min-width: 950px) {
+	.navegacion {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
+}
+.navegacion a {
+	text-decoration: none;
+	padding: .5rem;
+	background-color: var(--gris);
+	border-radius: .5rem;
+	border: 2px solid var(--negro);
+	color: var(--negro);
+	text-align: center;
+	text-transform: uppercase;
+}
+@media (min-width: 950px) {
+	.navegacion a {
+		background-color: transparent;
+		border: none;
+	}
+	.navegacion a:hover {
+		text-decoration: underline;
+	}
+}
+/* POKEDEX */
+.h1-style {
+	font-size: 1.4rem;
+	border-bottom: 2px solid var(--negro);
+	margin: 1rem 1rem 0 1rem;
+}
+@media (min-width: 950px) {
+	.h1-style {
+		font-size: 1.8rem;
+	}
+}
+.buscador {
+	padding: 2rem 1rem 1rem 1rem;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+.input-buscador {
+	padding: 1rem;
+	border-radius: 1rem;
+	border: 2px solid var(--negro);
+	color: var(--negro);
+	width: 100%;
+}
+.buscador button {
+	background-color: var(--blanco);
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	text-transform: uppercase;
+	padding: .5rem;
+}
+.buscador button:hover {
+	background-color: var(--negro);
+	color: var(--blanco);
+}
+.contenedor-mostrar-todo {
+	padding: 0 1rem;
+}
+.mostrartodo {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	width: 100%;
+}
+.mostrartodo:hover {
+	background-color: var(--negro);
+	color: var(--blanco);
+	cursor: pointer;
+}
+.tiposfiltro {
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+}
+@media (min-width: 950px) {
+	.tiposfiltro {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+.tiposfiltro button {
+	border: 2px solid var(--negro);
+}
+.btn-filtros {
+	padding: 1rem;
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	text-transform: uppercase;
+	margin: 1rem;
+}
+@media (min-width: 950px) {
+	.btn-filtros {
+		display: none;
+	}
+}
+#filtroDiv {
+	display: none;
+	padding: 10px;
+}
+@media (min-width: 950px) {
+	#filtroDiv {
+		display: grid;
+	}
+}
+/* Estilos para el contenedor de sugerencias */
+.sugerencias {
+	position: absolute;
+	background-color: var(--blanco);
+	display: none;
+	border: 1px solid #ccc;
+	max-height: 150px;
+	overflow-y: auto;
+	width: 100%;
+	box-sizing: border-box;
+	top: 100%;
+	left: 0;
+}
+.sugerencias div {
+	padding: 1rem;
+	cursor: pointer;
+}
+.sugerencias div:hover {
+	background-color: #f2f2f2;
+}
+#pokemonList {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	padding: 1rem;
+}
+@media (min-width: 950px) {
+    #pokemonList {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+.pokemon {
+	width: 100%;
+	background-color: var(--gris);
+	border-radius: 1rem;
+	padding: 1rem;
+	text-transform: uppercase;
+}
+.pokemon img {
+	width: 100%;
+}
+.id_nombre {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-wrap: wrap;
+	gap: 0.5rem;
+    font-size: 1.4rem;
+  color: var(--negro);
+}
+.id_pokedex {
+	background-color: var(--blanco);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+}
+.tipos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	padding: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--negro);
+}
+
+.medidas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+    font-size: 1.4rem;
+ color: var(--negro);
+}
+.peso, .altura {
+	background-color: var(--blanco);
+	border-radius: 0.5rem;
+	padding: 0.25rem 0.5rem;
+}
+/* PAGINA INICIO */
+.indexH1 {
+	font-size: 1.8rem;
+	border-bottom: 2px solid var(--negro);
+	margin-bottom: 1rem;
+}
+.enlacesOficiales {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	margin: 1rem 0;
+	padding: 1rem;
+}
+.enlacesOficiales a {
+	color: var(--negro);
+	border-bottom: 2px solid var(--negro);
+}
+.grid-index {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+@media (min-width: 950px) {
+	.grid-index {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+.contenedorDatos {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+}
+.infoContenedor {
+	padding: 0 2rem 1rem 2rem;
+}
+.juegoHeader {
+	display: flex;
+	align-items: center;
+	margin-top: 1rem;
+}
+.backWidth {
+	width: 100%;
+	height: 2rem;
+}
+.contenedorDatos img {
+	margin-right: 1rem;
+}
+.juegoH2 {
+	position: absolute;
+	margin: 1rem;
+	padding: 1rem;
+	background-color: var(--blanco);
+	text-transform: uppercase;
+}
+.juegoH2Letra {
+	color: #F05030;
+}
+.juegoDatos{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	padding: 1rem 2rem;
+	list-style: circle;
+}
+@media (min-width: 950px) {
+	.juegoDatos {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+.juegoDatos a {
+	color: var(--negro);
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	text-align: center;
+	padding: .5rem .25rem;
+	font-size: 1.4rem;
+}
+.enlaceDatosSobre:hover {
+	background-color: #F05030;
+}
+.enlaceDatosAct:hover {
+	background-color: #78C850;
+}
+.enlaceDatosPoke:hover {
+	background-color: #3899F8;
+}
+.enlaceDatosObj:hover {
+	background-color: #F8D030;
+}
+.enlaceDatosReg:hover {
+	background-color: #58C8E0;
+}
+.enlaceDatosLoc:hover {
+	background-color: #E9D6A4;
+}
+.enlaceDatosNpc:hover {
+	background-color: #7860E0;
+}
+.enlaceDatosMec:hover {
+	background-color: #A05038;
+}
+.enlaceDatosEve:hover {
+	background-color: #F870A0;
+}
+.enlaceDatosAdd:hover {
+	background-color: #98A8F0;
+}
+/* POKEMON */
+.cartaPokemon {
+	margin: 1rem;
+}
+@media (min-width: 950px) {
+	.cartaPokemon {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1rem;
+		max-width: 120rem;
+		margin: 1rem auto;
+	}
+}
+.stats {
+	display: grid;
+	gap: .5rem;
+	margin: 1rem 0;
+	padding: 1rem;
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+}
+@media (min-width: 950px) {
+	.stats {
+		margin: 0;
+		grid-column: 5 / 7;
+	}
+}
+.rellena_barraHP {
+	height: .5rem;
+	background-color: #78C850;
+	margin-left: 1rem;
+}
+.rellena_barraATQ {
+	height: .5rem;
+	background-color: #F05030;
+	margin-left: 1rem;
+}
+.rellena_barraDEF {
+	height: .5rem;
+	background-color: #3899F8;
+	margin-left: 1rem;
+}
+.rellena_barraATQESP {
+	height: .5rem;
+	background-color: #7860E0;
+	margin-left: 1rem;
+}
+.rellena_barraDEFESP {
+	height: .5rem;
+	background-color: #B8A058;
+	margin-left: 1rem;
+}
+.rellena_barraVEL {
+	height: .5rem;
+	background-color: #F8D030;
+	margin-left: 1rem;
+}
+.barraHP, .barraATQ, .barraDEF,
+.barraATQESP, .barraDEFESP, .barraVEL {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.textoHP, .textoATQ, .textoDEF,
+.textoATQESP, .textoDEFESP, .textoVEL {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	padding: .5rem;
+	min-width: 8rem;
+	text-align: center;
+}
+.textoHP {
+	background-color: #78C850;
+}
+.textoATQ {
+	background-color: #F05030;
+}
+.textoDEF {
+	background-color: #3899F8;
+}
+.textoATQESP {
+	background-color: #7860E0;
+}
+.textoDEFESP {
+	background-color: #B8A058;
+}
+.textoVEL {
+	background-color: #F8D030;
+}
+.textoStat {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	padding: .5rem;
+	min-width: 3rem;
+	text-align: center;
+	margin-left: 1rem;
+	width: 4.2rem;
+}
+.cartaInfo {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+}
+@media (min-width: 950px) {
+	.cartaInfo {
+		grid-column: 5 / 7;
+	}
+}
+.imagenPoke {
+	width: 100%;
+	height: auto;
+}
+@media (min-width: 950px) {
+	.imagenPoke {
+		height: revert-layer;
+		object-fit: contain;
+	}
+}
+#cambiarShiny {
+	width: 100%;
+	padding: 1rem;
+	border: none;
+	border-radius: 1rem;
+	text-transform: uppercase;
+}
+.infoPoke {
+	display: flex;
+	justify-content: space-around;
+	gap: 1rem;
+	padding: 1rem;
+	text-transform: uppercase;
+	align-items: center;
+}
+.infoPoke a {
+	color: var(--negro);
+	display: flex;
+	align-items: center;
+}
+.infoPoke p {
+	display: flex;
+	align-items: center;
+}
+.cartaPokeTipos {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	margin: .5rem;
+}
+.cartaPokeTipos p {
+	width: 100%;
+	text-align: center;
+	padding: .25rem;
+	border-radius: .5rem;
+	text-transform: uppercase;
+}
+.cartaPokeHabilidades {
+	grid-column: 5 / 7;
+	margin: 1rem 0;
+	padding: .5rem;
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: .25rem;
+}
+@media (min-width: 950px) {
+	.cartaPokeHabilidades {
+		margin: 0;
+	}
+}
+.PokeHabilidadesCarta {
+	width: 100%;
+	padding: .25rem;
+}
+.PokeHabilidadesCarta:last-child {
+	grid-column: 1 / 3;
+}
+.PokeHabilidadesCarta a {
+	color: #A05038;
+	text-decoration: underline;
+}
+.cartaPokeEvoluciones {
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	grid-column: 5 / 7;
+	margin: 1rem 0;
+	text-align: center;
+}
+@media (min-width: 950px) {
+	.cartaPokeEvoluciones {
+		margin: 0;
+	}
+}
+.datosEvoPoke {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.evolutionInfo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.evolutionInfo img {
+	width: 10rem;
+}
+.cartaMedidas {
+	grid-column: 5 / 7;
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	padding: .5rem;
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+@media (min-width: 950px) {
+	.cartaMedidas {
+		margin: 0;
+	}
+}
+.cartaPokeGruposHuevo {
+	grid-column: 5 / 7;
+	border: 2px solid var(--negro);
+	border-radius: 1rem;
+	margin: 1rem 0;
+	padding: .5rem;
+}
+.grupoHuevoTitulo {
+	text-align: center;
+	text-decoration: underline;
+}
+@media (min-width: 950px) {
+	.cartaPokeGruposHuevo {
+		margin: 0;
+	}
+}
+.grupoHuevoInnerJs {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: .5rem;
+}
+.left-main {
+	grid-row: 1 / 1;
+	grid-column: 1 / 5;
+}
+.left-main h1 {
+	text-transform: uppercase;
+	border-bottom: 2px solid var(--negro);
+}
